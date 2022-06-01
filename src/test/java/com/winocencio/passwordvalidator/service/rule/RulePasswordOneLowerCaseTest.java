@@ -6,13 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-class RulePasswordOneUpperCaseTest {
+class RulePasswordOneLowerCaseTest {
 	
 	private RulePassword rulePassword;
 
 	@BeforeAll
 	void setUp() {
-		rulePassword = new RulePasswordOneUpperCase(null);
+		rulePassword = new RulePasswordOneLowerCase(null);
 	}
 
 	@Test
@@ -31,13 +31,13 @@ class RulePasswordOneUpperCaseTest {
 	}
 	
 	@Test
-	void whenContainsOnlyLowerCaseAssertFalse() {
-		assertFalse(rulePassword.isValid("aaaa"));
-	}	
+	void whenContainsOnlyLowerCaseAssertTrue() {
+		assertTrue(rulePassword.isValid("aaaa"));
+	}
 	
 	@Test
-	void whenContainsOnlyUpperCaseAssertTrue() {
-		assertTrue(rulePassword.isValid("AAA"));
+	void whenContainsOnlyUpperCaseAssertFalse() {
+		assertFalse(rulePassword.isValid("AAA"));
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ class RulePasswordOneUpperCaseTest {
 	
 	@Test
 	void whenContainsManyCharacterAndNotUpperCaseAssertFalse() {
-		assertFalse(rulePassword.isValid("aa1256¨&? "));
+		assertFalse(rulePassword.isValid("AA1256¨&? "));
 	}
 
 }

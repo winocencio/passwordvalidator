@@ -9,6 +9,7 @@ public class RulePasswordLength extends RulePassword {
 		super(nextRule);
 	}
 
+	@Override
 	public Boolean isValid(String password) {
 		if(password.length() < MIN_LENGTH_DEFAULT)
 			return false;
