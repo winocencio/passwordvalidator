@@ -13,7 +13,7 @@ public class PasswordValidatorController {
 	@Autowired
 	PasswordValidatorService passwordValidatorService;
 	
-	@GetMapping("/{password}")
+	@GetMapping("passwordValidator/{password}")
 	public Boolean isValid(@PathVariable String password) {
 		return passwordValidatorService.isValid(password);
 	}
